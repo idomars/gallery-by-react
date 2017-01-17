@@ -1,0 +1,48 @@
+html,body{
+  height: 100%;
+  width: 100%;
+  background-color: #222;
+}
+
+.content{
+  height: 100%;
+  width: 100%;
+}
+
+/* state start */
+.stage{
+
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+/* state end */
+
+/* img-sec start */
+.img-sec {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #ddd;
+  perspective: 1800px; /*景深值。值越大，其他改变发生时，效果越小。！！属性无效*/
+}
+
+
+
+/* img-sec end */
+
+
+
+/*controller start*/
+
+.controller-nav {
+  position: absolute;
+  left: 0;
+  bottom: 30px;
+  z-index: 101;  /*10的2次方*/
+  text-align: center;
+  width:100%;
+}
+
+/*controller end*/
