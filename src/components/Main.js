@@ -1,9 +1,8 @@
 require('normalize.css/normalize.css');
-require('styles/App.css');
+require('styles/App.scss');
 
 import React from 'react';
 
-let yeomanImage = require('../images/yeoman.png');
 
 //获取图片相关数据
 let imagesDatas = require('../data/imageData.json');
@@ -22,19 +21,44 @@ imagesDatas = (function genImageURL(imageDatasArr) {
 })(imagesDatas);
 
 
+//单张图片
+class ImgFigure extends React.Component{
+    render(){
+    	return (
+    		<figure className="img-figure">
+    			<img src={this.props.data.imageURL}
+    			alt={this.props.data.title} />
+    			<figcaption>
+    				<h2 className='img-title'>{this.props.data.title} </h2>
+    			</figcaption>
+    		</figure>
+    		);
+    }
+
+}
+
 class AppComponent extends React.Component {
   render() {
+  		var controllerUnits = [],
+  		    imgFigures = [];
+
+  	imagesDatas.forEach(function(value){
+  		imgFigures.push(<ImgFigure data={value} />);
+  	});
+
     return (
     	 <section className = "stage" ref = "stage" >
-    	  < section className = "img-sec" > < /section> 
-    	   < nav className = "controller-nav" > < /nav> 
+    	  < section className = "img-sec" >{imgFigures} < /section> 
+    	   < nav className = "controller-nav" >{controllerUnits}< /nav> 
     	  < /section >
     );
   }
 }
 
+
 AppComponent.defaultProps = {
-};
+
+}
 
 
 export default AppComponent;
